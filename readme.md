@@ -2,6 +2,9 @@
 UBBMarkup
 =========
 
+UBBMarkup makes mixing PHP and HTML easy by staying in the world of PHP. UBB Markup is a slim template engine, but has no own syntax.
+
+
 Examples
 --------
 
