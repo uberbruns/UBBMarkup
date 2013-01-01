@@ -12,13 +12,40 @@ Examples
 --------
 
 ```php
+
+m("section.meta") /* <section class="meta"> */
+m("/section") /* </section> */
+
+m("title", "Web Page") /* <title>Web Page</title> */
+
+m("a", "href", "http://apple.com", "Apple") /* <a href="http://apple.com">Apple</a> */
+
 m("option", "selected", "selected","Yes"); /* <option selected>Yes</option> */
+
 m("#content"); /* <div id="content"> */
 m("/"); /* </div> */
+
 m("article#post.featured", "class", "new"); /* <article id="post" class="featured new"> */
 m("/article"); /* </article> */
+
 m("body", "class", undefined); /* <body> */
 ```
+
+
+
+How does it work?
+-----------------
+
+- First argument is the tag
+- The following arguments are interpreted as pairs of attributes and values
+- If the last argument is not a value it is intepreted as inner text and the tag gets closed after it
+
+```php
+m(tag, attribute, value, attribute, value, attribute, value);
+m(tag, attribute, value, attribute, value, inner text);
+m(tag, inner text);
+```
+
 
 Demo
 ----
@@ -100,19 +127,6 @@ Output
 </html>
 ```
 
-
-How does it work?
------------------
-
-- First argument is the tag
-- The following arguments are interpreted as pairs of attributes and values
-- If the last argument is not a value it is intepreted as inner text and the tag gets closed after it
-
-```php
-m(tag, attribute, value, attribute, value, attribute, value);
-m(tag, attribute, value, attribute, value, inner text);
-m(tag, inner text);
-```
 
 
 
