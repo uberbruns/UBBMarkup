@@ -104,6 +104,30 @@ m("/html");
 ```
 
 
+Output
+------
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>UBBMarkup Demo Page</title>
+</head>
+<body>
+	<div id="content">
+		<h1>Uberlinks</h1>
+		<ul class="linklist">
+			<li class="first"><a href="https://github.com/uberbruns" title="My Github Profile">My Github Profile</a></li>
+			<li><a href="https://twitter.com/stephenfry" title="Stephen Fry on Twitter">Stephen Fry on Twitter</a></li>
+			<li class="pony"><a href="http://ponyfac.es" title="Say it with a pony">Say it with a pony</a></li>
+			<li><a href="http://xkcd.com/927/" title="Standards">Standards</a></li>
+			<li class="last"><a href="http://www.youtube.com/watch?v=pOyDW_Y2Emo" title="Hypercritcal Song">Hypercritcal Song</a></li>
+		</ul>
+	</div>
+</body>
+</html>
+```
+
 
 
 The MIT License
