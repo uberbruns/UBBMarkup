@@ -62,7 +62,7 @@ function m() {
 
 // Alternative Local Convenience Function
 // $m = function() use ($ubb_markup) {
-//   print(call_user_func_array(array($ubb_markup, "create_markup"), func_get_args()));
+//   print(call_user_func_array(array($ubb_markup, "create_element"), func_get_args()));
 // };
 
 
