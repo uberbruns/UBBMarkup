@@ -7,7 +7,7 @@ Examples
 
 ```php
 m("option", "selected", "selected","Yes"); /* <option selected>Yes</option> */
-m("#content); /* <div id="content"> */
+m("#content"); /* <div id="content"> */
 m("/"); /* </div> */
 m("article#post.featured", "class", "new"); /* <article id="post" class="featured new"> */
 m("/article"); /* </article> */
