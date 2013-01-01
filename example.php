@@ -4,7 +4,7 @@ require_once "class.ubbmarkup.php";
 
 $ubb_markup = new UBBMarkup();
 
-// Global Convenience Function
+// Define Global Convenience Function
 function m() {
 	print(call_user_func_array(array($GLOBALS["ubb_markup"], "create_element"), func_get_args()));
 }
@@ -27,7 +27,7 @@ $link_list = array(
 
 
 // Print Markup
-m("!DOCTYPE","html","html"); // html="html" will be compiled to "html"
+m("!DOCTYPE","html","html");
 m("html", "lang", "en");
 m("head");
 m("meta", "charset", "utf-8");
