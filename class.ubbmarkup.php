@@ -1,6 +1,8 @@
 <?php
 
 /*
+
+
 The MIT License
 ---------------
 
@@ -26,14 +28,16 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-
 class UBBMarkup {
 
 	public function create_element() {
 
 		$args = func_get_args();
 		$attr_dict = array();
-		$tag, $text, $attr, $val = undefined;
+		$tag = undefined;
+		$text = undefined;
+		$attr = undefined;
+		$val = undefined;
 
 		// Parse Function Arguments to Tags, Atrributes and Values
 		// - First arg is the tag
