@@ -48,7 +48,7 @@ $link_list = array(
 
 
 // Print Markup
-m("!DOCTYPE","html","html"); // html="html" will be compiled to "html"
+m("!DOCTYPE","html","html");
 m("html", "lang", "en");
 m("head");
 m("meta", "charset", "utf-8");
@@ -56,7 +56,7 @@ m("title", $title);
 m("/head");
 
 m("body");
-m("#content"); // No tag is rendered as div
+m("#content");
 m("h1", "Uberlinks");
 
 m("ul.linklist");
