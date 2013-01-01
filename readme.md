@@ -1,0 +1,101 @@
+
+UBBMarkup
+=========
+
+
+Usage
+-----
+
+```php
+require_once "class.ubbmarkup.php";
+
+$ubb_markup = new UBBMarkup();
+
+// Global Convenience Function
+function m() {
+	print(call_user_func_array(array($GLOBALS["ubb_markup"], "create_element"), func_get_args()));
+}
+
+// Alternative Local Convenience Function
+// $m = function() use ($ubb_markup) {
+//   print(call_user_func_array(array($ubb_markup, "create_markup"), func_get_args()));
+// };
+
+
+// Content
+$title = "UBBMarkup Demo Page";
+$link_list = array(
+	array("class" => "first", "href" => "https://github.com/uberbruns", "text" => "My Github Profile"),
+	array("class" => "", "href" => "https://twitter.com/stephenfry", "text" => "Stephen Fry on Twitter"),
+	array("class" => "pony", "href" => "http://ponyfac.es", "text" => "Say it with a pony"),
+	array("class" => "", "href" => "http://xkcd.com/927/", "text" => "Standards"),
+	array("class" => "last", "href" => "http://www.youtube.com/watch?v=pOyDW_Y2Emo", "text" => "Hypercritcal Song"),
+);
+
+
+// Print Markup
+m("!DOCTYPE","html","html"); // html="html" will be compiled to "html"
+m("html", "lang", "en");
+m("head");
+m("meta", "charset", "utf-8");
+m("title", $title);
+m("/head");
+
+m("body");
+m("#content"); // No tag is rendered as div
+m("h1", "Uberlinks");
+
+m("ul.linklist");
+foreach ($link_list as $item) {
+	m("li", "class", $item["class"]);
+	m("a", "href", $item["href"], "title", $item["text"], $item["text"]);
+	m("/li");
+}
+m("/ul");
+
+m("/");
+m("/body");
+
+m("/html");
+```
+
+
+
+How does it work?
+-----------------
+
+- First argument is the tag
+- The following arguments are interpreted as pairs of attributes and values
+- If the last argument is not a value it is intepreted as inner text and the tag gets closed after it
+
+```php
+m(tag, attribute, value, attribute, value, attribute, value);
+m(tag, attribute, value, attribute, value, inner text);
+m(tag, inner text);
+```
+
+
+
+The MIT License
+---------------
+
+Copyright (c) 2012 Karsten Bruns (karsten{at}bruns{dot}me)
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
