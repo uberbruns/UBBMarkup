@@ -43,7 +43,7 @@ class UBBMarkup {
 		// - First arg is the tag
 		// - Any odd numbered argument is an attribute, except if it is the last argument
 		// - Any even argument is a value
-		// - Is the last odd-numbered argument is text
+		// - The last odd-numbered argument is text
 		for ($i=0; $i < count($args); $i++) { 
 			$arg = $args[$i];
 			if ($i == 0) {
