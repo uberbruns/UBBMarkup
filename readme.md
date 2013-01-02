@@ -13,12 +13,12 @@ Examples
 
 ```php
 
-m("section.meta") /* <section class="meta"> */
-m("/section") /* </section> */
+m("section.meta"); /* <section class="meta"> */
+m("/section"); /* </section> */
 
-m("title", "Web Page") /* <title>Web Page</title> */
+m("title", "Web Page"); /* <title>Web Page</title> */
 
-m("a", "href", "http://apple.com", "Apple") /* <a href="http://apple.com">Apple</a> */
+m("a", "href", "http://apple.com", "Apple"); /* <a href="http://apple.com">Apple</a> */
 
 m("option", "selected", "selected","Yes"); /* <option selected>Yes</option> */
 
