@@ -2,7 +2,7 @@
 UBBMarkup
 =========
 
-UBBMarkup makes mixing PHP and HTML easy by staying in the world of PHP. UBB Markup is a slim template engine, but has no own syntax.
+UBBMarkup makes mixing PHP and HTML easy by staying in the world of PHP. UBBMarkup is a slim template engine, but has no own syntax.
 
 I started this project because mixing PHP and HTML drove me nuts. I don't like escaping and I don't like to end and begin the php parts of one file. But I also don't want to use a third language extra for templateing. So this is my take on it.
 
@@ -28,7 +28,7 @@ m("/"); /* </div> */
 m("article#post.featured", "class", "new"); /* <article id="post" class="featured new"> */
 m("/article"); /* </article> */
 
-m("body", "class", undefined); /* <body> */
+m("body", "class", ""); /* <body> */
 ```
 
 
