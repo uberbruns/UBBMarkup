@@ -103,7 +103,7 @@ class UBBMarkup {
 		// Print Tag
 		$out = "<" . $tag;
 		foreach ($attr_dict as $attr => $val) {
-			if ($attr == $val) {
+			if ($attr == $val || $val === true || $val === 1) {
 				$out .= " " . $attr;
 			} else if ($val) {
 				$out .= " " . $attr . "=\"" . trim($val) . "\"";

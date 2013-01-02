@@ -27,7 +27,7 @@ $link_list = array(
 
 
 // Print Markup
-m("!DOCTYPE","html","html");
+m("!DOCTYPE","html",true);
 m("html", "lang", "en");
 m("head");
 m("meta", "charset", "utf-8");

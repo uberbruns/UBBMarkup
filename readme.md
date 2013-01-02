@@ -20,7 +20,7 @@ m("title", "Web Page"); /* <title>Web Page</title> */
 
 m("a", "href", "http://apple.com", "Apple"); /* <a href="http://apple.com">Apple</a> */
 
-m("option", "selected", "selected","Yes"); /* <option selected>Yes</option> */
+m("option", "selected", true, "Yes"); /* <option selected>Yes</option> */
 
 m("#content"); /* <div id="content"> */
 m("/"); /* </div> */
@@ -78,7 +78,7 @@ $link_list = array(
 
 
 // Print Markup
-m("!DOCTYPE","html","html");
+m("!DOCTYPE","html", true);
 m("html", "lang", "en");
 m("head");
 m("meta", "charset", "utf-8");
