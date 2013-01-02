@@ -21,6 +21,7 @@ m("title", "Web Page"); /* <title>Web Page</title> */
 m("a", "href", "http://apple.com", "Apple"); /* <a href="http://apple.com">Apple</a> */
 
 m("option", "selected", true, "Yes"); /* <option selected>Yes</option> */
+m("option", "selected", false, "No"); /* <option>No</option> */
 
 m("#content"); /* <div id="content"> */
 m("/"); /* </div> */
