@@ -34,10 +34,10 @@ class UBBMarkup {
 
 		$args = func_get_args();
 		$attr_dict = array();
-		$tag = undefined;
-		$text = undefined;
-		$attr = undefined;
-		$val = undefined;
+		$tag = null;
+		$text = null;
+		$attr = null;
+		$val = null;
 
 		// Parse Function Arguments to Tags, Atrributes and Values
 		// - First arg is the tag
@@ -113,7 +113,7 @@ class UBBMarkup {
 
 
 		// Close Tag
-		if ($text !== undefined) {
+		if ($text !== null) {
 			$out .= $text;
 			$out .= $this->close_element($tag);
 		}
