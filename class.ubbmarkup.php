@@ -32,12 +32,31 @@ class UBBMarkup {
 
 	public function create_element() {
 
-		$args = func_get_args();
+		$parsed_input = $this->parse_args(func_get_args());
+		return $parsed_input["html"];
+
+	}
+
+
+	protected function close_element($tag) {
+
+		if (!$tag) {
+			$tag = "div";
+		}
+
+		return sprintf("</%s>", $tag);
+
+	}
+
+
+	public function parse_args($args, $filter=null) {
+
 		$attr_dict = array();
 		$tag = null;
 		$text = null;
 		$attr = null;
 		$val = null;
+
 
 		// Parse Function Arguments to Tags, Atrributes and Values
 		// - First arg is the tag
@@ -49,7 +68,7 @@ class UBBMarkup {
 			if ($i == 0) {
 				$tag = $arg;
 				if (substr($tag, 0, 1) == "/") {
-					return $this->close_element(substr($tag, 1));
+					return array("html" => $this->close_element(substr($tag, 1)), "tag" => $tag);
 				} 
 			} else if ($i%2 == 1) {
 				if ($i < count($args)-1) {
@@ -103,10 +122,12 @@ class UBBMarkup {
 		// Print Tag
 		$out = "<" . $tag;
 		foreach ($attr_dict as $attr => $val) {
-			if ($attr == $val || $val === true || $val === 1) {
-				$out .= " " . $attr;
-			} else if ($val) {
-				$out .= " " . $attr . "=\"" . trim($val) . "\"";
+			if (!$filter || in_array($attr, $filter)) {
+				if ($attr == $val || $val === true || $val === 1) {
+					$out .= " " . $attr;
+				} else if ($val) {
+					$out .= " " . $attr . "=\"" . trim($val) . "\"";
+				}
 			}
 		}
 		$out .= ">";
@@ -116,22 +137,15 @@ class UBBMarkup {
 		if ($text !== null) {
 			$out .= $text;
 			$out .= $this->close_element($tag);
+			if ($text === FALSE) {
+				return "";
+			}
 		}
 
-		return $out;
+		return array("html" => $out, "tag" => $tag, "attributes" => $attr_dict, "text" => $text);
 
 	}
 
-
-	protected function close_element($tag) {
-
-		if (!$tag) {
-			$tag = "div";
-		}
-
-		return sprintf("</%s>", $tag);
-
-	}
 
 
 }
