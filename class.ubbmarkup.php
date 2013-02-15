@@ -33,8 +33,16 @@ class UBBMarkup {
 	public function create_element() {
 
 		$parsed_input = $this->parse_args(func_get_args());
-		return $parsed_input["html"];
+		$return = $parsed_input["html"];
 
+		// if (!$return) {
+		// 	print_r(func_get_args());
+		// 	print_r($parsed_input);
+		// 	exit;
+		// }
+
+		return $return;
+			
 	}
 
 
@@ -138,7 +146,7 @@ class UBBMarkup {
 			$out .= $text;
 			$out .= $this->close_element($tag);
 			if ($text === FALSE) {
-				return "";
+				return array("html" => "", "tag" => $tag);
 			}
 		}
 
